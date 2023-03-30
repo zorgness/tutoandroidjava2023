@@ -1,8 +1,10 @@
-package com.example.tuto_android_java_2023;
+package com.example.tuto_android_java_2023.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.tuto_android_java_2023.R;
 
 public class FragmentStaticActivity2 extends AppCompatActivity {
 

@@ -28,5 +28,6 @@
     <string name="fragment_1">fragment 1</string>
     <string name="trash">trash</string>
     <string name="ajouter">ajouter</string>
+    <string name="next">next</string>
 
 </resources>

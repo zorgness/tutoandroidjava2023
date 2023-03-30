@@ -5,8 +5,8 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
-    tools:context=".MyFragment">
+    android:background="#9860"
+    tools:context=".fragments.MyFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

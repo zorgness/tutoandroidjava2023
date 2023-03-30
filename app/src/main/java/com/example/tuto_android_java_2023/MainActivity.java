@@ -19,7 +19,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     private CountryAdapter countryAdapter;
     private final int LAUNCH_COUNTRY_NEW_FORM_ACTIVITY = 243;
     private final int LAUNCH_COUNTRY_EDIT_FORM_ACTIVITY = 255;
@@ -46,13 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
         //NEW FORM
         Button btnAddCountry = findViewById(R.id.button_add_country);
-        btnAddCountry.setOnClickListener(v-> {
+        btnAddCountry.setOnClickListener(v -> {
             Intent countryFormActivityIntent = new Intent(
                     this, CountryFormActivity.class
 
             );
             startActivityForResult(countryFormActivityIntent, LAUNCH_COUNTRY_NEW_FORM_ACTIVITY);
         });
+
 
         //EDIT FORM
         countryAdapter.setCallback2(country -> {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 countryAdapter.addCountry(country);
                 recyclerView.scrollToPosition(countryAdapter.getItemCount() - 1);
 
-            } else if(resultCode == RESULT_CANCELED) {
+            } else if (resultCode == RESULT_CANCELED) {
                 String msg = data == null ? "cancelled via back" : "cancelled via button";
                 Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
             }
