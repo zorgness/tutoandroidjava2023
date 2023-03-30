@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">tuto-android-java-2023</string>
+    <string name="ok">OK</string>
+    <string name="welcome_what_s_your_name">Bienvenue comment vous appelez-vous ?</string>
+    <string name="lol">lol</string>
+    <string name="lel">lel</string>
+    <string name="pr_nom">Prénom:</string>
+    <string name="nom">Nom:</string>
+    <string name="age">Age:</string>
+    <string name="valider">Valider</string>
+    <string name="retour">Retour</string>
+    <string name="aller">Aller</string>
+    <string name="your_email">Votre email</string>
+    <string name="enter_your_email">entrez votre email</string>
+    <string name="your_password">Votre mot de passe</string>
+    <string name="enter_your_password">entrez votre mot de passe</string>
+    <string name="login">Login</string>
+</resources>
