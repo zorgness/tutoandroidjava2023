@@ -1,13 +1,15 @@
 package com.example.tuto_android_java_2023.fragments2;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.tuto_android_java_2023.MyCallback;
 import com.example.tuto_android_java_2023.R;
 
 public class FragmentsActivity extends AppCompatActivity {
@@ -16,60 +18,45 @@ public class FragmentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragments);
-    }
 
-    /**
-     * A simple {@link Fragment} subclass.
-     * Use the {@link PinkFragment#newInstance} factory method to
-     * create an instance of this fragment.
-     */
-    public static class PinkFragment extends Fragment {
+        Button btnGreen = findViewById(R.id.btn_green);
+        Button btnPink = findViewById(R.id.btn_pink);
 
-        // TODO: Rename parameter arguments, choose names that match
-        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        private static final String ARG_PARAM1 = "param1";
-        private static final String ARG_PARAM2 = "param2";
 
-        // TODO: Rename and change types of parameters
-        private String mParam1;
-        private String mParam2;
+        btnGreen.setOnClickListener(v -> {
 
-        public PinkFragment() {
-            // Required empty public constructor
-        }
-
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PinkFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        public static PinkFragment newInstance(String param1, String param2) {
-            PinkFragment fragment = new PinkFragment();
-            Bundle args = new Bundle();
-            args.putString(ARG_PARAM1, param1);
-            args.putString(ARG_PARAM2, param2);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            if (getArguments() != null) {
-                mParam1 = getArguments().getString(ARG_PARAM1);
-                mParam2 = getArguments().getString(ARG_PARAM2);
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            GreenFragment greenFragment = new GreenFragment("Titre dynamique de Fragment vert");
+            ft.replace(R.id.frame_layout, greenFragment);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            try {
+                ft.commit();
+            } catch (Exception e) {
+                //Log.d(TAG, e.getMessage());
             }
-        }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_pink, container, false);
-        }
+        });
+
+
+        btnPink.setOnClickListener(v -> {
+
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            PinkFragment pinkFragment = new PinkFragment();
+
+            pinkFragment.setOnBtnToastClicked(o -> {
+                Toast.makeText(this, (String) o, Toast.LENGTH_SHORT).show();
+            });
+
+            ft.replace(R.id.frame_layout, pinkFragment);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            try {
+                ft.commit();
+            } catch (Exception e) {
+                //Log.d(TAG, e.getMessage());
+            }
+
+        });
     }
 }
